@@ -8,22 +8,18 @@ namespace SRP.Model
 {
     public class Pay
     {
-        private decimal hoursWorked {  get; set; }
+        private decimal hoursWorked { get; set; }
         private Employee employee { get; set; }
 
-        public decimal salary { get; set; }
-
-        public Pay(decimal hoursWorked, Employee employee, decimal salary)
+        public Pay(Employee employee, decimal hoursWorked)
         {
-            this.hoursWorked = hoursWorked;
             this.employee = employee;
-            this.salary = salary;
+            this.hoursWorked = hoursWorked;
         }
 
-        public decimal CalculatePayRoll(Employee employee)
+        public decimal CalculatePayRoll()
         {
-            salary = hoursWorked * employee.HourlySalary;
-            return salary;
+            return hoursWorked * employee.HourlySalary;
         }
     }
 }

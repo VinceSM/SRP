@@ -11,39 +11,53 @@ using System.Windows.Forms;
 
 namespace SRP
 {
-    partial class Form1 : Form
+    public partial class Form1 : Form
     {
-        private Employee employee;
-        private Pay pay;
-        private Email email;
-
         public Form1()
         {
             InitializeComponent();
+            btnSaveInfo.Click += BtnSaveInfo_Click;
+            btnSendEmail.Click += BtnSendEmail_Click;
         }
 
-        private void btnCalcSalary_Click(object sender, EventArgs e)
+        private void BtnSaveInfo_Click(object sender, EventArgs e)
         {
-
-            decimal hoursWorked = decimal.Parse(txtHsWoked.Text);
+            string name = txtNameEmp.Text;
+            string position = txtPosition.Text;
             decimal hourlySalary = decimal.Parse(txtHsSalary.Text);
-            employee = new Employee(txtNameEmp.Text, txtPosition.Text, hourlySalary);
-            pay = new Pay(hoursWorked, employee, 0);
-            decimal salary = pay.CalculatePayRoll(employee);
-            txtSalary.Text = salary.ToString();
+            decimal hoursWorked = decimal.Parse(txtHsWoked.Text);
+
+            Employee employee = new Employee(name, position, hourlySalary);
+            Pay pay = new Pay(employee, hoursWorked);
+
+            decimal salary = pay.CalculatePayRoll();
+            
+
+            txtDetailsEmployee.Text = $"Nombre: {employee.Name}{Environment.NewLine}" + 
+                                      $"Posición: {employee.Position}{Environment.NewLine}" +
+                                      $"Salario por hora: {employee.HourlySalary}{Environment.NewLine}" +
+                                      $"Horas trabajadas: {hoursWorked}{Environment.NewLine}" +
+                                      $"Salario calculado: {salary:F2}{Environment.NewLine}{Environment.NewLine}{Environment.NewLine}";
         }
 
-        private void btnSendEmail_Click(object sender, EventArgs e)
+        private void BtnSendEmail_Click(object sender, EventArgs e)
         {
-                txtDetailsEmployee.Text = $"Name: {txtNameEmp.Text}" +
-                $"\r\nPosition: " +
-                $"{txtPosition.Text}\r\nHours Worked: " +
-                $"{txtHsWoked.Text}\r\nHourly Salary: " +
-                $"{txtHsSalary.Text}\r\nTotal Salary: " +
-                $"{txtSalary.Text}";
+            string name = txtNameEmp.Text;
+            string position = txtPosition.Text;
+            decimal hourlySalary = decimal.Parse(txtHsSalary.Text);
 
-                email.SendEmail(employee, subject, message, detalle, logAction);
+            Employee employee = new Employee(name, position, hourlySalary);
+            Email email = new Email();
 
+            string subject = $"Informe de Salario{Environment.NewLine}";
+            string message = $"Estimado {employee.Name}," +
+                             $"{Environment.NewLine}Su informe de salario está disponible." +
+                             $"Atte, Equipo de Recursos Humanos";
+
+            email.SendEmail(employee, subject, message, log =>
+            {
+                txtDetailsEmployee.AppendText("\n\n" + log);
+            });
         }
     }
 }

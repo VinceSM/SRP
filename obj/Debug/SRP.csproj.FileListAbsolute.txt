@@ -8,3 +8,13 @@ C:\Users\14-3Año\Documents\StMartin\SRP\obj\Debug\SRP.csproj.GenerateResource.c
 C:\Users\14-3Año\Documents\StMartin\SRP\obj\Debug\SRP.csproj.CoreCompileInputs.cache
 C:\Users\14-3Año\Documents\StMartin\SRP\obj\Debug\SRP.exe
 C:\Users\14-3Año\Documents\StMartin\SRP\obj\Debug\SRP.pdb
+C:\Users\vsmx4\source\repos\SRP\bin\Debug\SRP.exe.config
+C:\Users\vsmx4\source\repos\SRP\bin\Debug\SRP.exe
+C:\Users\vsmx4\source\repos\SRP\bin\Debug\SRP.pdb
+C:\Users\vsmx4\source\repos\SRP\obj\Debug\SRP.csproj.AssemblyReference.cache
+C:\Users\vsmx4\source\repos\SRP\obj\Debug\SRP.Properties.Resources.resources
+C:\Users\vsmx4\source\repos\SRP\obj\Debug\SRP.Form1.resources
+C:\Users\vsmx4\source\repos\SRP\obj\Debug\SRP.csproj.GenerateResource.cache
+C:\Users\vsmx4\source\repos\SRP\obj\Debug\SRP.csproj.CoreCompileInputs.cache
+C:\Users\vsmx4\source\repos\SRP\obj\Debug\SRP.exe
+C:\Users\vsmx4\source\repos\SRP\obj\Debug\SRP.pdb
